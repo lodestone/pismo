@@ -1,7 +1,6 @@
 # encoding=utf-8
 
 require 'pismo/title_matches'
-require 'pismo/author_matches'
 require 'pismo/description_matches'
 require 'pismo/lede_matches'
 
@@ -61,33 +60,6 @@ module Pismo
       parts = title.split(TITLE_SEPARATORS_REGEX)
       longest = parts.max_by(&:length)
       return longest
-    end
-
-    # Returns the author of the page/content
-    def authors
-      @all_authors ||= begin
-        @doc.match(AUTHOR_MATCHES).map do |author|
-          # Strip off any "By [whoever]" section
-          case author
-          when String
-            author.sub!(/^(post(ed)?\s)?by\W+/i, '')
-            author.tr!('^a-zA-Z 0-9\'', '|')
-            author = author.split(/\|{2,}/).first.to_s
-            author.gsub!(/\s+/, ' ')
-            author.gsub!(/\|/, '')
-            author.strip
-          when Array
-            author.map! { |a| a.sub(/^(post(ed)?\s)?by\W+/i, '') }.uniq!
-          else
-            puts "%s is a %s" % [author, author.class]
-            nil
-          end
-        end.compact
-      end
-    end
-
-    def author
-      authors.first
     end
 
     # Returns the "description" of the page, usually comes from a meta tag
