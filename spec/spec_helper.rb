@@ -1,4 +1,3 @@
-require "shoulda"
 require "open-uri"
 require "yaml"
 require "pismo"
