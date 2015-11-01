@@ -12,7 +12,6 @@ require 'pismo/document'
 require 'pismo/reader'
 require 'pismo/reader/base'
 require 'pismo/reader/tree'
-require 'pismo/reader/cluster'
 require 'pismo/images/image_extractor'
 require 'pismo/utilities'
 
