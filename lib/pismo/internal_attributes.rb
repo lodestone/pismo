@@ -9,28 +9,9 @@ require 'pismo/lede_matches'
 module Pismo
   # Internal attributes are different pieces of data we can extract from a document's content
   module InternalAttributes
-    @@phrasie = Phrasie::Extractor.new
-
-    MONTHS_REGEX = %r{(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|January|February|March|April|May|June|July|August|September|October|November|December)\.?}i
-    DATETIME_REGEXEN = [
-      /#{MONTHS_REGEX}\b\s+\d+\D{1,10}\d{4}/i,
-      /(on\s+)?\d+\s+#{MONTHS_REGEX}\s+\D{0,10}\d+/i,
-      /(on[^\d+]{1,10})\d+(th|st|rd)?.{1,10}#{MONTHS_REGEX}\b[^\d]{1,10}\d+/i,
-      /\b\d{4}\-\d{2}\-\d{2}\b/i,
-      /\d+(th|st|rd).{1,10}#{MONTHS_REGEX}\b[^\d]{1,10}\d+/i,
-      /\d+\s+#{MONTHS_REGEX}\b[^\d]{1,10}\d+/i,
-      /on\s+#{MONTHS_REGEX}\s+\d+/i,
-      /#{MONTHS_REGEX}\s+\d+/i,
-      /\d{4}[\.\/\-]\d{2}[\.\/\-]\d{2}/,
-      /\d{2}[\.\/\-]\d{2}[\.\/\-]\d{4}/
-    ]
+    PHRASIE = Phrasie::Extractor.new
 
     TITLE_SEPARATORS_REGEX = /\s(\p{Pd}|\:|\p{Pf}|\||\:\:|\.)\s/
-
-    FEED_MATCHES = [
-      ['link[@type="application/rss+xml"][@rel="alternate"]',  lambda { |el| el.attr('href') }],
-      ['link[@type="application/atom+xml"][@rel="alternate"]', lambda { |el| el.attr('href') }]
-    ]
 
     FAVICON_MATCHES = [
       ['link[@rel="fluid-icon"]', lambda { |el| el.attr('href') }],      # Get a Fluid icon if possible..
@@ -80,23 +61,6 @@ module Pismo
       parts = title.split(TITLE_SEPARATORS_REGEX)
       longest = parts.max_by(&:length)
       return longest
-    end
-
-    # Return an estimate of when the page/content was created
-    # As clients of this library should be doing HTTP retrieval themselves, they can fall to the
-    # Last-Updated HTTP header if they so wish. This method is just rough and based on content only.
-
-    def datetime
-      datetime = 10
-      DATETIME_REGEXEN.detect {|r| datetime = @doc.to_html[r] }
-
-      return unless datetime and datetime.length > 4
-      # Clean up the string for use by Chronic
-      datetime.strip!
-      datetime.gsub!(/(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|mon|tues|tue|weds|wed|thurs|thur|thu|fri|sat|sun)[^\w]*/i, '')
-      datetime.sub!(/(on\s+|\,|\.)/, '')
-      datetime.sub!(/(\d+)(th|st|rd)/, '\1')
-      Chronic.parse(datetime, :context => :past) || datetime
     end
 
     # Returns the author of the page/content
@@ -223,15 +187,16 @@ module Pismo
     def keywords(options = {})
       options = DEFAULT_KEYWORD_OPTIONS.merge(options)
       text = [title, description, body].join(" ")
-      phrases = @@phrasie.phrases(text, :occur => options[:minimum_score]).map {|phrase, occur, strength| [phrase.downcase, occur] }
+      phrases = PHRASIE.phrases(text, :occur => options[:minimum_score]).map {|phrase, occur, strength| [phrase.downcase, occur] }
       phrases.
         delete_if {|phrase, occur| occur < 2 }.
         sort_by   {|phrase, occur| occur     }.
         reverse.first(options[:limit])
+      Hash[phrases]
     end
 
     def reader_doc
-      @reader_doc ||= Reader::Document.create(@doc.to_s, @options)
+      @reader_doc ||= Reader.create(@doc.to_s, @options)
     end
 
     # Returns body text as determined by Reader algorithm
@@ -253,34 +218,6 @@ module Pismo
         end
         url
       end
-    end
-
-    # Returns URL(s) of Web feed(s)
-    def feeds
-      @all_feeds ||= begin
-        @doc.match(FEED_MATCHES).map do |url|
-          case url
-          when String
-            if url.start_with? "http"
-              url
-            elsif @url
-              URI.join(@url , url).to_s
-            end
-          when Array
-            url.map do |u|
-              if u.start_with? "http"
-                u
-              elsif @url
-                URI.join(@url, u).to_s
-              end
-            end.uniq
-          end
-        end
-      end
-    end
-
-    def feed
-      feeds.first
     end
   end
 end
