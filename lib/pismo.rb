@@ -2,7 +2,6 @@
 
 require 'open-uri'
 require 'nokogiri'
-require 'chronic'
 require 'sanitize'
 require 'tempfile'
 require 'phrasie'
