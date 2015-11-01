@@ -8,18 +8,13 @@
   :lede: "This is a mock post."
 :huffington:
   :title: Afghans Losing Hope After 8 Years Of War
-  :author: TODD PITMAN
-  :authors:
-    - TODD PITMAN
-    - AP
   :lede: "KABUL — The man on the motorcycle was going the wrong way down a one-way street, gesturing indignantly for the phalanx of traffic-clogged cars in front of him to move."
 :bbcnews:
   :title: Gay Muslims made homeless by family violence
   :titles:
-    - Gay Muslims made homeless by family violence
-  :author: Poonam Taneja
-  :authors:
-    - Poonam Taneja
+    :og_title:
+    :html_title: Gay Muslims made homeless by family violence
+    :from_doc: Gay Muslims made homeless by family violence
   :description: A charity is dealing with more gay Muslims made homeless after fleeing forced marriages and so-called "honour" violence.
   :lede: A UK charity is dealing with an increasing number of young gay Muslims becoming homeless after fleeing forced marriages and so-called honour violence.
 :factor:
@@ -28,36 +23,28 @@
   :ledes:
     - "Separation of concerns between Factor VM and library codeThe Factor VM implements an abstract machine consisting of a data heap of objects, a code heap of machine code blocks, and a set of stacks. The VM loads an image file on startup, which becomes the data and code heap. It then begins executing code in the image, by calling a special startup quotation.When new source files are loaded into a running Factor instance by the developer, they are parsed and compiled into a collection of objects -- words, quotations, and other literals, along with executable machine code."
 :fastcompany:
-  :title: Airbnb
-  :author: Austin Carr
+  :title: "Airbnb: The World's 50 Most Innovative Companies in 2012"
   :titles:
-    - Airbnb
-    - "Airbnb: The World's 50 Most Innovative Companies in 2012"
-    - "For turning spare rooms into the world's hottest hotel chain"
+    :og_title: Airbnb
+    :html_title: "Airbnb: The World's 50 Most Innovative Companies in 2012"
+    :from_doc: "For turning spare rooms into the world's hottest hotel chain"
   :description: "\"There's someone in my apartment . . . right now.\" Joe Gebbia sounds like he's reading a line from a horror film. It's October, and Gebbia is in New York to speak at a design conference. Back home, in San Francisco, a complete stranger is roaming around his living room. But Gebbia isn't phoning the police--he's grinning."
   :lede: "\"There's someone in my apartment .  right now.\" Joe Gebbia sounds like he's reading a line from a horror film. It's October, and Gebbia is in New York to speak at a design conference."
   :ledes:
     - "\"There's someone in my apartment .  right now.\" Joe Gebbia sounds like he's reading a line from a horror film. It's October, and Gebbia is in New York to speak at a design conference."
 :youtube:
   :title: Rydeen (Official Video)
-  :author: ymo1965
-  :authors:
-    - ymo1965
 :spolsky:
   :title: The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)
   :description: Haven't mastered the basics of Unicode and character sets? Please don't write another line of code until you've read this article.
   :lede: "Ever wonder about that mysterious Content-Type tag? You know, the one you're supposed to put in HTML and you never quite know what it should be? Did you ever get an email from your friends in Bulgaria with the subject line \"???? "
-  :author: Joel Spolsky
   :favicon: /favicon.ico
 :techcrunch:
   :title: Googlle Gets A Sexy New Logo; Remains Sketchy
-  :author: MG Siegler
 :techcrunch.new:
   :title: Apple Unveils The Fourth Generation iPad With A6X, Lightning And Expanded LTE
-  :author: Romain Dillet
 :rubyinside:
   :title: "CoffeeScript: A New Language With A Pure Ruby Compiler"
-  :author: Peter Cooper
   :lede: CoffeeScript (GitHub repo) is a new programming language with a pure Ruby compiler.
   :tags: [Cool]
 :zefrank:
