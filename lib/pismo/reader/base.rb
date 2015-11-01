@@ -23,15 +23,38 @@ module Pismo
       GOOD_WORDS = %w{content post blogpost main story body entry text desc asset hentry single entrytext postcontent bodycontent}.uniq
 
       # Words that indicate crap in general
-      BAD_WORDS = %w{reply metadata options commenting comments comment about footer header outer credit sidebar widget subscribe clearfix date social bookmarks links share video watch excerpt related supplement accessibility offscreen meta title signup blq secondary feedback featured clearfix small job jobs listing listings navigation nav byline addcomment postcomment trackback neighbor ads commentform fbfans login similar thumb link blogroll grid twitter wrapper container nav sitesub printfooter editsection visualclear catlinks hidden toc contentsub caption disqus rss shoutbox sponsor blogcomments}.uniq
+      BAD_WORDS = %w{reply metadata options commenting comments comment about
+        footer header outer credit sidebar widget subscribe clearfix date
+        social bookmarks links share video watch excerpt related supplement
+        accessibility offscreen meta title signup blq secondary feedback
+        featured clearfix small job jobs listing listings navigation nav
+        byline addcomment postcomment trackback neighbor ads commentform
+        fbfans login similar thumb link blogroll grid twitter wrapper
+        container nav sitesub printfooter editsection visualclear catlinks
+        hidden toc contentsub caption disqus rss shoutbox sponsor blogcomments}.uniq
 
       # Words that kill a branch dead
-      FATAL_WORDS = %w{comments comment bookmarks social links ads related similar footer digg totop metadata sitesub nav sidebar commenting options addcomment leaderboard offscreen job prevlink prevnext navigation reply-link hide hidden sidebox archives vcard}.uniq
+      FATAL_WORDS = %w{comments comment bookmarks social links ads
+        related similar footer digg totop metadata sitesub nav sidebar
+        commenting options addcomment leaderboard offscreen job prevlink
+        prevnext navigation reply-link hide hidden sidebox archives vcard}.uniq
 
-      META_WORDS = %w{january february march april may june july august september october november december jan feb mar apr may jun jul aug sep oct nov dec st th rd nd comments written posted on at published 2000 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 updated last gmt est pst pdt edt cet cdt cst article feature featured filed under comment comments follow twitter facebook email e-mail register story continue continues reading read inside more page next related response responses respond contact street phone tel email e-mail fax info tags tagged tag thanks credit creative commons copy nbsp lt gt this friend printable version subscribe rss mail follow twitter article via leave}.uniq
+      META_WORDS = %w{january february march april may june july august
+        september october november december jan feb mar apr may jun jul
+        aug sep oct nov dec st th rd nd comments written posted on at
+        published 2000 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013
+        2014 2015 2016 2017 2018 2019 2020 updated last gmt est pst pdt edt
+        cet cdt cst article feature featured filed under comment comments
+        follow twitter facebook email e-mail register story continue continues
+        reading read inside more page next related response responses respond
+        contact street phone tel email e-mail fax info tags tagged tag thanks
+        credit creative commons copy nbsp lt gt this friend printable
+        version subscribe rss mail follow twitter article via leave}.uniq
 
-      WONT_CONTAIN_FULL_CONTENT = %w{h1 h2 h3 h4 h5 h6 h6 li ol ul br a img meta cite strong em i b input head small big code title sup sub dd dt}
-      COULD_CONTAIN_FULL_CONTENT = %w{body div p table tr td article pre blockquote tbody section}
+      WONT_CONTAIN_FULL_CONTENT = %w{h1 h2 h3 h4 h5 h6 h6 li ol ul br a
+        img meta cite strong em i b input head small big code title sup sub dd dt}
+      COULD_CONTAIN_FULL_CONTENT = %w{body div p table tr td article pre
+        blockquote tbody section}
 
       ## Output sanitization element sets
       BLOCK_OUTPUT_ELEMENTS = %w{div p h2 h3 h4 h5 h6 li dl pre ul ol blockquote section article audio video cite dd dt figure caption br table tr td thead tbody tfoot embed object}
