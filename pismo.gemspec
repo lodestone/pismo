@@ -24,8 +24,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency(%q<mocha>, [">= 0"])
   s.add_development_dependency('rake', '~> 10')
   s.add_development_dependency('rspec', "~> 3.3")
+  s.add_development_dependency('pry', '~> 0.10')
+  s.add_development_dependency('pry-byebug', '~> 3')
   s.add_dependency('nokogiri', '~> 1.6')
   s.add_dependency('phrasie', '~> 0.1')
+  s.add_dependency('sanitize', '~> 4')
   s.add_dependency('fastimage', '~> 1.7')
   s.add_dependency('htmlentities', '~> 4.3')
 end
