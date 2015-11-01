@@ -70,7 +70,6 @@ describe Pismo::Document do
 
         it 'should get relative images' do
           image = '/wp-content/uploads/2010/01/coffeescript.png'
-          puts "all images: #{doc.images}"
           expect(doc.images).to include(image)
         end
       end # all_images set to true
