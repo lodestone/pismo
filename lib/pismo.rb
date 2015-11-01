@@ -17,13 +17,6 @@ require 'pismo/reader/cluster'
 require 'pismo/images/image_extractor'
 require 'pismo/utilities'
 
-
-if RUBY_PLATFORM == "java"
-  class String; def stem; self; end; end
-else
-  require 'fast_stemmer'
-end
-
 module Pismo
   # Sugar methods to make creating document objects nicer
   def self.document(handle, options = {})
