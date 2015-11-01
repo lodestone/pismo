@@ -1,15 +1,10 @@
 ---
 :rww:
   :title: "Cartoon: Apple Tablet: Now With Barometer and Bird Call Generator"
-  :feed: http://www.readwriteweb.com/rss.xml
   :lede: I'm just aching to know if the new Apple tablet (insert caveats, weasel words and qualifiers here) is a potential Cintiq competitor. I don't think it will be, but you never know. It may also have a built in barometer and bird call generator. I'm never sure if Apple does themselves more good than harm with the secrecy and anticipation that surrounds the run-up to these announcements.
-  :feeds:
-    - http://www.readwriteweb.com/rss.xml
-    - http://www.readwriteweb.com/archives/2010/01/cartoon_apple_tablet_now_with_barometer_and_bird_c.xml
   :tags: [apple tablet, steve jobs]
 :briancray:
   :title: 5 great examples of popular blog posts that you should know
-  :feed: http://feeds.feedburner.com/briancray/blog
   :lede: "This is a mock post."
 :huffington:
   :title: Afghans Losing Hope After 8 Years Of War
@@ -17,7 +12,6 @@
   :authors:
     - TODD PITMAN
     - AP
-  :feed: http://feeds.huffingtonpost.com/huffingtonpost/raw_feed
   :lede: "KABUL — The man on the motorcycle was going the wrong way down a one-way street, gesturing indignantly for the phalanx of traffic-clogged cars in front of him to move."
 :bbcnews:
   :title: Gay Muslims made homeless by family violence
@@ -28,7 +22,6 @@
     - Poonam Taneja
   :description: A charity is dealing with more gay Muslims made homeless after fleeing forced marriages and so-called "honour" violence.
   :lede: A UK charity is dealing with an increasing number of young gay Muslims becoming homeless after fleeing forced marriages and so-called honour violence.
-  :feed: http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/england/rss.xml
 :factor:
   :title: Factor's bootstrap process explained
   :lede: "Separation of concerns between Factor VM and library codeThe Factor VM implements an abstract machine consisting of a data heap of objects, a code heap of machine code blocks, and a set of stacks. The VM loads an image file on startup, which becomes the data and code heap. It then begins executing code in the image, by calling a special startup quotation.When new source files are loaded into a running Factor instance by the developer, they are parsed and compiled into a collection of objects -- words, quotations, and other literals, along with executable machine code."
@@ -56,7 +49,6 @@
   :lede: "Ever wonder about that mysterious Content-Type tag? You know, the one you're supposed to put in HTML and you never quite know what it should be? Did you ever get an email from your friends in Bulgaria with the subject line \"???? "
   :author: Joel Spolsky
   :favicon: /favicon.ico
-  :feed: http://www.joelonsoftware.com/rss.xml
 :techcrunch:
   :title: Googlle Gets A Sexy New Logo; Remains Sketchy
   :author: MG Siegler
@@ -67,7 +59,6 @@
   :title: "CoffeeScript: A New Language With A Pure Ruby Compiler"
   :author: Peter Cooper
   :lede: CoffeeScript (GitHub repo) is a new programming language with a pure Ruby compiler.
-  :feed: http://www.rubyinside.com/feed/
   :tags: [Cool]
 :zefrank:
   :sentences: If there's anyone who knows how to marshal an online audience, it's Ze Frank. Ze is best-known for his 2006 program "The Show," in which he made a new 2-3 minute video every day for 1 year. Topics ranged from "fingers in food" to the mysteries of airport signage to a tour de force summary of creatives' addiction to un-executed ideas, aka brain crack.
@@ -84,8 +75,6 @@
   :title: 18 Incredible CSS3 Effects You Have Never Seen Before
   :lede: "CSS3 is hot these days and will soon be available in most modern browser. Just recently, I started to become aware to the present of CSS3 around the web. I can see some of the websites such as twitter and designer portfolios websites are using it. Also, I have started to implement it to my own project as well and I really love it!"
   :sentences: CSS3 is hot these days and will soon be available in most modern browser. Just recently, I started to become aware to the present of CSS3 around the web. I can see some of the websites such as twitter and designer portfolios websites are using it.
-  :datetime: 2010-02-17 12:00:00 +00:00
 :thegoodbookblog:
   :title: Signs Of Life
-  :datetime: 2012-07-25 12:00:00 +00:00
   :tags: [Church Life, Marriage and Family, Ministry and Leadership]
