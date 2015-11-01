@@ -16,21 +16,16 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "pismo"
 
-  s.files         = `git ls-files`.split("\n")
+  s.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|plugins)/}) }
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_development_dependency(%q<shoulda>, [">= 0"])
   s.add_development_dependency(%q<mocha>, [">= 0"])
-  s.add_development_dependency(%q<rake>, [">= 0"])  
-  s.add_dependency(%q<awesome_print>, [">= 0"])
-  s.add_dependency(%q<nokogiri>, [">= 0"])
-  s.add_dependency(%q<sanitize>, [">= 0"])
-  s.add_dependency(%q<fast-stemmer>, [">= 0"])
-  s.add_dependency(%q<chronic>, [">= 0"])
-  s.add_dependency(%q<phrasie>, [">= 0.1.4"])
-  s.add_dependency(%q<fastimage>, [">= 1"])
-  s.add_dependency(%q<htmlentities>)
-
+  s.add_development_dependency('rake', '~> 10')
+  s.add_development_dependency('rspec', "~> 3.3")
+  s.add_dependency('nokogiri', '~> 1.6')
+  s.add_dependency('phrasie', '~> 0.1')
+  s.add_dependency('fastimage', '~> 1.7')
+  s.add_dependency('htmlentities', '~> 4.3')
 end
