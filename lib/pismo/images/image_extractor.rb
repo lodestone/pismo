@@ -9,7 +9,9 @@ require 'logger'
 #
 class ImageExtractor
 
-  attr_reader :doc, :top_content_candidate, :bad_image_names_regex, :image, :url, :min_width, :min_height, :min_bytes, :max_bytes, :options, :logger
+  attr_reader :doc, :top_content_candidate, 
+    :bad_image_names_regex, :image, :url, 
+    :min_width, :min_height, :min_bytes, :max_bytes, :options, :logger
 
   def initialize(document, url, options = {})
     @logger = options[:logger]
