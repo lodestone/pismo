@@ -19,14 +19,38 @@ module Pismo
     ]
 
     def titles
-      #in order of likley accuracy: og:title, html_title, document matches
-      @all_titles ||= [ og_title, html_title, @doc.match(TITLE_MATCHES) ].
-        flatten.reject {|s| s.nil? || s == ''}.uniq
+      if @all_titles.nil?
+        title_candidates_from_doc = @doc.match(TITLE_MATCHES) # returns an array
+        from_doc_title = nil
+        # get title with more words
+        title_candidates_from_doc.each do |title|
+          from_doc_title = title if from_doc_title.nil?
+          from_doc_title = title if from_doc_title.length < title.length
+        end
+
+        #in order of likley accuracy: og:title, html_title, document matches
+        @all_titles ||= {
+          og_title: og_title,
+          html_title: html_title,
+          from_doc: from_doc_title
+        }
+      end
+
+      @all_titles
     end
 
     # Returns the title of the page/content
     def title
-      @title ||= Utilities.longest_common_substring_in_array(titles) || titles.first
+      @title ||= Utilities.longest_common_substring_in_array(titles.values) 
+      @title = titles[:og_title] unless title_ok?
+      @title = titles[:html_title] unless title_ok?
+      @title = titles[:from_doc] unless title_ok?
+
+      @title
+    end
+
+    private def title_ok?
+      !@title.nil? && @title.split(' ').length > 1 
     end
 
     # title from OG tags, if any
